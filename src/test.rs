@@ -1,3 +1,4 @@
+#[macro_export]
 macro_rules! async_test {
     ($func_name:tt, $code_block:block) => {
         #[tokio::test]
@@ -9,6 +10,7 @@ macro_rules! async_test {
     };
 }
 
+#[macro_export]
 macro_rules! test {
     ($func_name:tt, $code_block:block) => {
         #[test]

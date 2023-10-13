@@ -1,3 +1,4 @@
+#[macro_export]
 macro_rules! new_deserializer {
     ($func_name:ident $to_type:ty {$exec_block:expr}) => {
         pub(crate) fn $func_name<'de, D>(d: D) -> std::result::Result<$to_type, D::Error>
@@ -10,6 +11,7 @@ macro_rules! new_deserializer {
     };
 }
 
+#[macro_export]
 macro_rules! new_str_serializer {
     ($func_name:ident $from_type:ty {$exec_block:expr}) => {
         fn $func_name<S>(from_val: &$from_type, s: S) -> Result<S::Ok, S::Error>
