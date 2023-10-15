@@ -2,10 +2,9 @@
 macro_rules! async_test {
     ($func_name:tt, $code_block:block) => {
         #[tokio::test]
-        async fn $func_name() -> anyhow::Result<()> {
+        async fn $func_name() {
             env_logger::init();
-            $code_block
-            Ok(())
+            $code_block;
         }
     };
 }
@@ -14,10 +13,9 @@ macro_rules! async_test {
 macro_rules! test {
     ($func_name:tt, $code_block:block) => {
         #[test]
-        fn $func_name() -> anyhow::Result<()> {
+        fn $func_name() {
             env_logger::init();
-            $code_block
-            Ok(())
+            $code_block;
         }
     };
 }
