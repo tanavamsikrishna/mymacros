@@ -1,4 +1,4 @@
-async fn cache<T, Fut, E>(
+pub async fn cache<T, Fut, E>(
     cache_file: &str,
     func: impl FnOnce() -> Fut,
 ) -> std::result::Result<T, E>
