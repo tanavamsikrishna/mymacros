@@ -3,7 +3,7 @@ macro_rules! async_test {
     ($func_name:tt, $code_block:block) => {
         #[tokio::test]
         async fn $func_name() {
-            env_logger::init();
+            let _ = env_logger::try_init();
             $code_block;
         }
     };
@@ -14,7 +14,7 @@ macro_rules! test {
     ($func_name:tt, $code_block:block) => {
         #[test]
         fn $func_name() {
-            env_logger::init();
+            let _ = env_logger::try_init();
             $code_block;
         }
     };
